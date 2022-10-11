@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from 'src/app/interfaces/Product';
 import { ProductService } from 'src/app/services/product.service';
-import { Router,ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-product-form',
@@ -11,31 +11,40 @@ import { Router,ActivatedRoute } from '@angular/router';
 export class ProductFormComponent implements OnInit {
 
   product: Product = {
-    name:'',
-    description:'',
-    price:0,
-    imageURL:''
+    name: '',
+    description: '',
+    price: 0,
+    imageURL: '',
+    categories: ''
   };
 
+  public Categories = [
+    { id: 0, categories: 'Telefonos' },
+    { id: 1, categories: 'Computadores' }
+  ];
+
+
+
   edit: boolean = false;
+  data: any;
 
   constructor(
     private productService: ProductService,
-    private router:Router,
+    private router: Router,
     private activatedRoute: ActivatedRoute
   ) { }
 
   ngOnInit(): void {
     const params = this.activatedRoute.snapshot.params;
-    if(params){
+    if (params) {
       this.productService.getProduct(params['id'])
-      .subscribe(
-        res => {
-          console.log(res);
-          this.product = res;
-          this.edit = true;
-        }
-      )
+        .subscribe(
+          res => {
+            console.log(res);
+            this.product = res;
+            this.edit = true;
+          }
+        )
     }
   }
 
@@ -59,7 +68,7 @@ export class ProductFormComponent implements OnInit {
           this.router.navigate(['/product'])
         },
         err => console.log(err)
-    )
+      )
   }
 
 }

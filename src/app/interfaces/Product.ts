@@ -5,4 +5,6 @@ export interface Product {
     price: number;
     imageURL: string;
     createdAt?: Date;
+    categories: string;
+    
 }

@@ -17,9 +17,14 @@
         <li>
           created At: {{product.createdAt}}
         </li>
+        <li>
+          categories: {{product.categories}}
+        </li>
       </ul>
-      <button class="btn btn-danger" (click)="deleteProduct(product._id ?? '')">Delete</button>
-      <button class="btn btn-secondry" [routerLink]="['/product/edit',product._id]">Edit</button>
+      <button class="btn btn-danger" 
+        (click)="deleteProduct(product._id ?? '')">Delete</button>
+      <button class="btn btn-secondry" 
+        [routerLink]="['/product/edit',product._id]">Edit</button>
     </div>
     <div class="col-md-4">
       <img [src]="product.imageURL" class="card-img">

@@ -1,0 +1,70 @@
+<p>product-categories works!</p>
+
+<!--<div *ngFor="let categories of Categories" class="card card-body mb-2">-->
+<div [(ngModel)]="product.categories" name="prueba" ngDefaultControl>
+  <h1 style="text-align: center;">TELEFONOS</h1>
+  <div *ngFor="let product of products" >
+    <div *ngIf="product.categories=='Telefonos';"class="card card-body mb-2">
+      <div class="row">
+        <div class="col-md-8">
+          <ul>
+            <li>
+              id: {{product._id}}
+            </li>
+            <li>
+              name: {{product.name}}
+            </li>
+            <li>
+              description: {{product.description}}
+            </li>
+            <li>
+              price: {{product.price}}
+            </li>
+            <li>
+              created At: {{product.createdAt}}
+            </li>
+            <li>
+              categories: {{product.categories}}
+            </li>
+          </ul>
+        </div>
+        <div class="col-md-4">
+          <img [src]="product.imageURL" class="card-img">
+        </div>
+      </div>
+    </div>
+  </div>
+  <h1 style="text-align: center;">COMPUTADORES</h1>
+  <div *ngFor="let product of products" >
+    <div *ngIf="product.categories=='Computadores';" class="card card-body mb-2">
+      <div class="row">
+        <div class="col-md-8">
+          <ul>
+            <li>
+              id: {{product._id}}
+            </li>
+            <li>
+              name: {{product.name}}
+            </li>
+            <li>
+              description: {{product.description}}
+            </li>
+            <li>
+              price: {{product.price}}
+            </li>
+            <li>
+              created At: {{product.createdAt}}
+            </li>
+            <li>
+              categories: {{product.categories}}
+            </li>
+          </ul>
+        </div>
+        <div class="col-md-4">
+          <img [src]="product.imageURL" class="card-img">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--</div>-->
