@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Product } from '../interfaces/Product';
+import { ProductFormComponent } from '../components/product-form/product-form.component';
 
 @Injectable({
   providedIn: 'root'
@@ -34,3 +35,4 @@ export class ProductService {
   }
 
 }
+
