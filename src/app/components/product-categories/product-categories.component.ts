@@ -11,8 +11,12 @@ import { CategoryService } from 'src/app/services/category.service';
 })
 export class ProductCategoriesComponent implements OnInit {
 
-  products : any ;
-  categories:any;
+  products: any;
+  categories: any;
+
+  combobox_value='';
+  productos_filtrados: any;
+  categorias_filtradas:any;
 
   edit: boolean = false;
   data: any;
@@ -20,47 +24,68 @@ export class ProductCategoriesComponent implements OnInit {
   constructor(
     private productService: ProductService,
     private categoryService: CategoryService
-    ) { }
+  ) { }
 
   ngOnInit() {
     this.getProducts();
     this.getCategories();
     //this.getCategoriesAggregate();
+
   }
 
-  getCategoriesAggregate(){
+  leer(){
+    this.combobox_value=this.products.categories;
+    console.log(this.combobox_value)
+  }
+
+  login_btnClick(){
+    console.log('FUNCIONA');
+    this.productos_filtrados = this.products/*.filter( (products:any) =>
+      //products.categories==this.combobox_value
+      
+    );*/
+    this.categorias_filtradas = this.categories.filter((categories:any)=>
+      categories._id==this.combobox_value
+    );
+        
+    console.log(this.categories);
+    //console.log(this.productos_filtrados);
+  }
+
+
+  getCategoriesAggregate() {
     this.categoryService.getCategoriesAggregate()
-    .subscribe(
-      res => {
-        this.categories = res;
-        
-        console.log(res);
-      },   //console.log(res),               //{this.products = res;},
-      err => console.log(err)
-    ) 
+      .subscribe(
+        res => {
+          this.categories = res;
+
+          console.log(res);
+        },   //console.log(res),               //{this.products = res;},
+        err => console.log(err)
+      )
   }
 
-getCategories(){
-  this.categoryService.getCategories()
-    .subscribe(
-      res => {
-        this.categories = res;
-        
-        console.log(res);
-      },   //console.log(res),               //{this.products = res;},
-      err => console.log(err)
-    ) 
-}
+  getCategories() {
+    this.categoryService.getCategories()
+      .subscribe(
+        res => {
+          this.categories = res;
 
-  getProducts(){
+          console.log(res);
+        },   //console.log(res),               //{this.products = res;},
+        err => console.log(err)
+      )
+  }
+
+  getProducts() {
     this.productService.getProducts()
-    .subscribe(
-      res => {
-        this.products = res;
-        
-        console.log(res);
-      },   //console.log(res),               //{this.products = res;},
-      err => console.log(err)
-    ) 
+      .subscribe(
+        res => {
+          this.products = res;
+
+          console.log(res);
+        },   //console.log(res),               //{this.products = res;},
+        err => console.log(err)
+      )
   }
 }
