@@ -14,6 +14,10 @@ export class CategoryService {
 
   constructor(private http: HttpClient) { }
 
+  getCategoriesAggregate(): Observable<Category[]> {
+    return this.http.get<Category[]>(`${this.BASE_URL}/category`);
+  }
+
   getCategories(): Observable<Category[]> {
     return this.http.get<Category[]>(`${this.BASE_URL}/category`);
   }

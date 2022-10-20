@@ -67,8 +67,8 @@
   </div>
 </div>
 -->
-
-<div *ngFor="let category of categories">
+                                      <!--POPULATE-->
+<!--<div *ngFor="let category of categories">
   <h1>{{category.nameCategory}}</h1>
   <div *ngFor="let product of products">
     <div *ngIf="product.categories.nameCategory==category.nameCategory" class="card card-body mb-2">
@@ -102,5 +102,42 @@
     </div>
   </div>
 </div>
+-->
 
 <!--</div>-->
+                                      <!--AGGREGATE-->
+<div *ngFor="let category of categories">
+  <h1>{{category.nameCategory}}</h1>
+  <div *ngFor="let product of products">
+    <div *ngIf="product.category[0].nameCategory==category.nameCategory" class="card card-body mb-2">
+      <div class="row">
+        <div class="col-md-8">
+          <ul>
+            <li>
+              id: {{product._id}}
+            </li>
+            <li>
+              name: {{product.name}}
+            </li>
+            <li>
+              description: {{product.description}}
+            </li>
+            <li>
+              price: {{product.price}}
+            </li>
+            <li>
+              created At: {{product.createdAt}}
+            </li>
+            <li>
+              categories: {{product.category[0].nameCategory}}
+            </li>
+          </ul>
+        </div>
+        <div class="col-md-4">
+          <img [src]="product.imageURL" class="card-img">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

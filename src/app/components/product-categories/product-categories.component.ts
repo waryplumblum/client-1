@@ -25,6 +25,19 @@ export class ProductCategoriesComponent implements OnInit {
   ngOnInit() {
     this.getProducts();
     this.getCategories();
+    //this.getCategoriesAggregate();
+  }
+
+  getCategoriesAggregate(){
+    this.categoryService.getCategoriesAggregate()
+    .subscribe(
+      res => {
+        this.categories = res;
+        
+        console.log(res);
+      },   //console.log(res),               //{this.products = res;},
+      err => console.log(err)
+    ) 
   }
 
 getCategories(){
