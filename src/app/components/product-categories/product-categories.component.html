@@ -4,7 +4,8 @@
 
 <div class="form-group">
   <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" [(ngModel)]="products.categories" name="something" >
-    <option *ngFor="let categories of categories" [value]="categories.nameCategory">
+    <option *ngFor="let categories of categories" 
+    [value]="categories._id">
       <span>{{categories.nameCategory}}</span>
     </option>
   </select>
@@ -15,7 +16,7 @@
 
   <div><!--*ngFor="let category of categories"-->
    <!-- <h1>{{category.nameCategory}}</h1>-->
-   <h1>{{combobox_value}}</h1>
+   <!-- <h1>{{combobox_value}}</h1> -->
     <div *ngFor="let product of products">
       <div class="card card-body mb-2">
         <div class="row">

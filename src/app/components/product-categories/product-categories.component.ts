@@ -37,21 +37,6 @@ export class ProductCategoriesComponent implements OnInit {
     this.combobox_value=this.products.categories;
     console.log(this.combobox_value)
   }
-
-  login_btnClick(){
-    console.log('FUNCIONA');
-    this.productos_filtrados = this.products/*.filter( (products:any) =>
-      //products.categories==this.combobox_value
-      
-    );*/
-    this.categorias_filtradas = this.categories.filter((categories:any)=>
-      categories._id==this.combobox_value
-    );
-        
-    console.log(this.categories);
-    //console.log(this.productos_filtrados);
-  }
-
   getProductsByCategory(){
     this.leer()
     this.productService.getProductsByCategory(this.combobox_value)
@@ -64,6 +49,19 @@ export class ProductCategoriesComponent implements OnInit {
         err => console.log(err)
       )
   }
+  /*login_btnClick(){
+    console.log('FUNCIONA');
+    this.productos_filtrados = this.products/*.filter( (products:any) =>
+      //products.categories==this.combobox_value
+      
+    );
+    this.categorias_filtradas = this.categories.filter((categories:any)=>
+      categories._id==this.combobox_value
+    );
+        
+    console.log(this.categories);
+    //console.log(this.productos_filtrados);
+  }*/
 
   getCategoriesAggregate() {
     this.categoryService.getCategoriesAggregate()
