@@ -3,20 +3,21 @@
 
 
 <div class="form-group">
-  <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" [(ngModel)]="products.categories" name="something" (change)="leer()">
-    <option *ngFor="let categories of categories" [value]="categories._id">
+  <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" [(ngModel)]="products.categories" name="something" >
+    <option *ngFor="let categories of categories" [value]="categories.nameCategory">
       <span>{{categories.nameCategory}}</span>
     </option>
   </select>
 
-  <button type="button" class="btn btn-primary" (click)="login_btnClick()">Buscar</button>
-
+  <!--<button type="button" class="btn btn-primary" (click)="login_btnClick()">Buscar</button>-->
+  <button type="button" class="btn btn-primary" (click)="getProductsByCategory()">Buscar</button>
   <!--AGGREGATE-->
 
-  <div *ngFor="let category of categorias_filtradas">
-    <h1>{{category.nameCategory}}</h1>
-    <div *ngFor="let product of productos_filtrados">
-      <div *ngIf="product.category[0].nameCategory==category.nameCategory" class="card card-body mb-2">
+  <div><!--*ngFor="let category of categories"-->
+   <!-- <h1>{{category.nameCategory}}</h1>-->
+   <h1>{{combobox_value}}</h1>
+    <div *ngFor="let product of products">
+      <div class="card card-body mb-2">
         <div class="row">
           <div class="col-md-8">
             <ul>

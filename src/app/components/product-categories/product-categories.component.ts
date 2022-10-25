@@ -52,6 +52,18 @@ export class ProductCategoriesComponent implements OnInit {
     //console.log(this.productos_filtrados);
   }
 
+  getProductsByCategory(){
+    this.leer()
+    this.productService.getProductsByCategory(this.combobox_value)
+      .subscribe(
+        res => {
+          this.products = res;
+
+          console.log(res);
+        },   //console.log(res),               //{this.products = res;},
+        err => console.log(err)
+      )
+  }
 
   getCategoriesAggregate() {
     this.categoryService.getCategoriesAggregate()
