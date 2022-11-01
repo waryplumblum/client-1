@@ -1,61 +1,47 @@
 <p>product-categories works!</p>
-
-
-
 <div class="form-group">
-  <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" [(ngModel)]="products.categories" name="something" >
-    <option *ngFor="let categories of categories" 
-    [value]="categories._id">
-      <span>{{categories.nameCategory}}</span>
+  <select    class="custom-select mr-sm-2"    id="inlineFormCustomSelect"    [(ngModel)]="combobox_value"    name="something"  >
+    <option *ngFor="let categories of categories" [value]="categories._id">
+      <span>{{ categories.nameCategory }}</span>
     </option>
   </select>
-
   <!--<button type="button" class="btn btn-primary" (click)="login_btnClick()">Buscar</button>-->
-  <button type="button" class="btn btn-primary" (click)="getProductsByCategory()">Buscar</button>
+  <button    type="button"    class="btn btn-primary"    (click)="getProductsByCategory()"  >    Buscar  </button>
   <!--AGGREGATE-->
-
-  <div><!--*ngFor="let category of categories"-->
-   <!-- <h1>{{category.nameCategory}}</h1>-->
-   <!-- <h1>{{combobox_value}}</h1> -->
+  <hr />
+  <input type="text" [(ngModel)]="search" />
+  <button type="button" class="btn btn-primary" (click)="filter()">
+    Buscar
+  </button>
+  <button type="button" class="btn btn-primary" (click)="getArray()">
+    Ver Arreglo
+  </button>
+  <hr />
+  <div>
+    <!--*ngFor="let category of categories"-->
+    <!-- <h1>{{category.nameCategory}}</h1>-->
+    <!-- <h1>{{combobox_value}}</h1> -->
     <div *ngFor="let product of products">
       <div class="card card-body mb-2">
         <div class="row">
           <div class="col-md-8">
             <ul>
-              <li>
-                id: {{product._id}}
-              </li>
-              <li>
-                name: {{product.name}}
-              </li>
-              <li>
-                description: {{product.description}}
-              </li>
-              <li>
-                price: {{product.price}}
-              </li>
-              <li>
-                created At: {{product.createdAt}}
-              </li>
-              <li>
-                categories: {{product.category[0].nameCategory}}
-              </li>
+              <li>id: {{ product._id }}</li>
+              <li>name: {{ product.name }}</li>
+              <li>description: {{ product.description }}</li>
+              <li>price: {{ product.price }}</li>
+              <li>created At: {{ product.createdAt }}</li>
+              <li>categories: {{ product.category[0].nameCategory }}</li>
             </ul>
           </div>
           <div class="col-md-4">
-            <img [src]="product.imageURL" class="card-img">
+            <img [src]="product.imageURL" class="card-img" />
           </div>
         </div>
       </div>
     </div>
   </div>
 </div>
-
-
-
-
-
-
 <!--<div *ngFor="let categories of Categories" class="card card-body mb-2">-->
 <!--
 <h1 style="text-align: center;">TELEFONOS</h1>
@@ -134,7 +120,7 @@
             <li>
               id: {{product._id}}
             </li>
-            <li>
+            <li>-º
               name: {{product.name}}
             </li>
             <li>
@@ -159,5 +145,3 @@
   </div>
 </div>
 -->
-
-<!--</div>-->
