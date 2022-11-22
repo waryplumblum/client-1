@@ -16,12 +16,22 @@ export class ProductCategoriesComponent implements OnInit {
 
   search: string = '';
 
+ 
+
   combobox_value = '';
   productos_filtrados: any;
   categorias_filtradas: any;
 
   edit: boolean = false;
   data: any;
+
+  filters = {
+    name:'',
+    description:'',
+    price:1,
+    imageURL:'',
+    categories:null
+  }
 
   constructor(
     private productService: ProductService,
@@ -34,7 +44,7 @@ export class ProductCategoriesComponent implements OnInit {
   }
 
   getProductsByCategory() {
-    this.productService.getProductsByCategory(this.combobox_value).subscribe(
+    this.productService.getProductsByCategory(this.filters).subscribe(
       (res) => {
         this.products = res;
         console.log(res);
@@ -44,7 +54,7 @@ export class ProductCategoriesComponent implements OnInit {
   }
 
   filter(): void {
-    this.productService.getProductsByCategory(this.combobox_value).subscribe(
+    this.productService.getProductsByCategory(this.filters).subscribe(
       (res) => {
         this.products = res;
         this.products = this.products.filter(
